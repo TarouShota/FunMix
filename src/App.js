@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Button from './components/Button';
 import Editor from './components/Editor';
-import { compileFunc } from "ton-compiler";
-// import mainFc from "./main.fc"
+// import { compileFunc } from "ton-compiler";
+// import mainFc from "./main.fc" 
 
 
 function App () {
