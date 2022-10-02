@@ -23,7 +23,7 @@ function App () {
       console.info(decodeURI(response.url));
       let data = await response.json()
       console.log(data);
-      setItems(data);
+      setOutputMsg(data);
     })
   }
   const [openedEditor, setOpenedEditor] = useState('html');
@@ -32,6 +32,7 @@ function App () {
   const [css, setCss] = useState('');
   const [js, setJs] = useState('');
   const [srcDoc, setSrcDoc] = useState(``);
+  const [outputMsg,setOutputMsg] = useState('');
 
   useEffect(()=>{
     window.ref = React.createRef()
@@ -61,13 +62,31 @@ function App () {
 
   return (
     <div className="App">
-      <div className="tab-button-container">
-        <Button title="HTML" onClick={() => {
-          onTabClick('html')
-        }} />
-        <Button title="CSS" onClick={() => {
-          onTabClick('css')
-        }} />
+      {outputMsg.status ==='ok' &&  <div style={{display: 'flex',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}>
+        <h3>Your reward:</h3>
+        <img style={{width:'45%',border:'10px solid green'}} src={"./nft.jpeg"}></img>
+        <div style={{marginTop:'2rem'}}>
+          <Button title={'Claim it'}></Button>
+        </div>
+
+
+
+
+      </div>
+        }
+
+
+      <div style={{marginBottom:'3rem'}} className="tab-button-container">
+        {/*<Button title="HTML" onClick={() => {*/}
+        {/*  onTabClick('html')*/}
+        {/*}} />*/}
+        {/*<Button title="CSS" onClick={() => {*/}
+        {/*  onTabClick('css')*/}
+        {/*}} />*/}
         <Button title="JavaScript" onClick={() => {
           onTabClick('js')
         }} />
@@ -107,17 +126,23 @@ function App () {
           )
         }
       </div>
-      <div>
-        <iframe
-          id="my_iframe"
-          srcDoc={srcDoc}
-          title="output"
-          sandbox="allow-scripts"
-          frameBorder="1"
-          width="150%"
-          height="150%"
-        />
+      {/*<div className="fakeMenu">*/}
+      {/*  <div className="fakeButtons fakeClose"></div>*/}
+      {/*  <div className="fakeButtons fakeMinimize"></div>*/}
+      {/*  <div className="fakeButtons fakeZoom"></div>*/}
+      {/*</div>*/}
+      <div className="fakeScreen">
+        {/*<p></p>*/}
+        <h3 style={{color:(outputMsg.status==="ok") ? 'green': 'red'}} >Status:{outputMsg.status}</h3>
+        {/*<h4>Generated fift:</h4>*/}
+        <p className="line1">{(outputMsg.message)}<span className="cursor1">_</span></p>
+        {/*<p className="line2">Out of the box I include HTML5 Boilerplate, jQuery, and a gulpfile.js to build your*/}
+        {/*  app.<span className="cursor2">_</span></p>*/}
+        {/*<p className="line3">[?] What more would you like? (Press space to select)<span className="cursor3">_</span></p>*/}
+        {/*<p className="line4">><span className="cursor4">_</span></p>*/}
+
       </div>
+
     </div>
   );
 }
