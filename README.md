@@ -32,7 +32,7 @@ cd frontend
 
 
 
- Install all of the required dependancies 
+ Install all of the required dependencies
 
 ```bash
 yarn install
