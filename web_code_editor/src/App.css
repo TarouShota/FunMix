@@ -403,3 +403,18 @@ span {
 .button-39:focus-visible {
   box-shadow: none;
 }
+
+.editor-container .editor-container div select{
+  color: black;
+}
+.editor-container .editor-container div label{}
+.editor-container .editor-container div select option{
+  color:black;
+}
+
+#compile-button button{
+  position: absolute;
+  top:3rem;
+  right:1rem;
+
+}

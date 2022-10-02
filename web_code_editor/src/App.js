@@ -35,8 +35,7 @@ function App () {
   const [outputMsg,setOutputMsg] = useState('');
 
   useEffect(()=>{
-    window.ref = React.createRef()
-// fetchItems()
+    // document.getElementById('javascript-btn').firstChild.firstChild.textContent = 'FunC'
   },[])
 
 
@@ -62,7 +61,7 @@ function App () {
 
   return (
     <div className="App">
-      {outputMsg.status ==='ok' &&  <div style={{display: 'flex',
+      {(outputMsg.status ==='ok') ? (<div style={{display: 'flex',
         flexWrap: 'nowrap',
         alignItems: 'center',
         flexDirection: 'column',
@@ -72,76 +71,56 @@ function App () {
         <div style={{marginTop:'2rem'}}>
           <Button title={'Claim it'}></Button>
         </div>
+      </div>) : (
+          <>
+            <div id='compile-button' style={{marginBottom:'3rem'}} className="tab-button-container">
+              <Button title={"Compile"} onClick={()=>{
+                let result = ''
+                document.querySelectorAll('.CodeMirror-line ').forEach((e)=>{
+                  result +=`${e.textContent}$`;
+                })
+                console.log(result);
+                fetchItems(result)
+              }
+              }></Button>
+            </div>
+            <div className="editor-container">
+              {
+                openedEditor === 'html' ? (
+                    <Editor
+                        language="xml"
+                        displayName="HTML"
+                        value={html}
+                        setEditorState={setHtml}
+                    />
+                ) : openedEditor === 'css' ? (
+                    <Editor
+                        language="css"
+                        displayName="CSS"
+                        value={css}
+                        setEditorState={setCss}
+                    />
+                ) : (
+                    <Editor
+                            language="javascript"
+                            displayName="JS"
+                            value={js}
+                            setEditorState={setJs}/>
+                )
+              }
+            </div>
 
+            <div className="fakeScreen">
 
-
-
-      </div>
+              <h3 style={{color:(outputMsg.status==="ok") ? 'green': 'red'}} >Status:{outputMsg.status}</h3>
+              <p className="line1">{(outputMsg.message)}<span className="cursor1">_</span></p>
+            </div>
+          </>
+      )
         }
 
 
-      <div style={{marginBottom:'3rem'}} className="tab-button-container">
-        {/*<Button title="HTML" onClick={() => {*/}
-        {/*  onTabClick('html')*/}
-        {/*}} />*/}
-        {/*<Button title="CSS" onClick={() => {*/}
-        {/*  onTabClick('css')*/}
-        {/*}} />*/}
-        <Button title="JavaScript" onClick={() => {
-          onTabClick('js')
-        }} />
-        <Button title={"compile"} onClick={()=>{
-          let result = ''
-         document.querySelectorAll('.CodeMirror-line ').forEach((e)=>{
-           result +=`${e.textContent}$`;
-         })
-          console.log(result);
-          fetchItems(result)
 
-        }
-        }></Button>
-      </div>
-      <div className="editor-container">
-        {
-          openedEditor === 'html' ? (
-            <Editor
-              language="xml"
-              displayName="HTML"
-              value={html}
-              setEditorState={setHtml}
-            />
-          ) : openedEditor === 'css' ? (
-            <Editor
-              language="css"
-              displayName="CSS"
-              value={css}
-              setEditorState={setCss}
-            />
-          ) : (
-            <Editor ref={window.ref}
-              language="javascript"
-              displayName="JS"
-              value={js}
-              setEditorState={setJs}/>
-          )
-        }
-      </div>
-      {/*<div className="fakeMenu">*/}
-      {/*  <div className="fakeButtons fakeClose"></div>*/}
-      {/*  <div className="fakeButtons fakeMinimize"></div>*/}
-      {/*  <div className="fakeButtons fakeZoom"></div>*/}
-      {/*</div>*/}
-      <div className="fakeScreen">
-        {/*<p></p>*/}
-        <h3 style={{color:(outputMsg.status==="ok") ? 'green': 'red'}} >Status:{outputMsg.status}</h3>
-        {/*<h4>Generated fift:</h4>*/}
-        <p className="line1">{(outputMsg.message)}<span className="cursor1">_</span></p>
-        {/*<p className="line2">Out of the box I include HTML5 Boilerplate, jQuery, and a gulpfile.js to build your*/}
-        {/*  app.<span className="cursor2">_</span></p>*/}
-        {/*<p className="line3">[?] What more would you like? (Press space to select)<span className="cursor3">_</span></p>*/}
-        {/*<p className="line4">><span className="cursor4">_</span></p>*/}
-
-      </div>
 
     </div>
   );
