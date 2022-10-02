@@ -5,14 +5,14 @@ Change the directory to the back-end folder
 ```bash
 cd back-end
 ```
-<!-- 
+
  Install the required packages
 ```bash
 yarn install
 ```
 
 
-After installing all of the required dependencies -->
+After installing all of the required dependencies
 
 ```bash
 nodemon run
@@ -31,14 +31,14 @@ cd frontend
 ```
 
 
-<!-- 
+
  Install all of the required dependancies 
 
 ```bash
 yarn install
 ```
 
- After installing all of the required dependencies -->
+ After installing all of the required dependencies
 
 ```bash
 npm start
