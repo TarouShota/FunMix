@@ -4,43 +4,39 @@ import Button from './components/Button';
 import Editor from './components/Editor';
 // import  {compileFunc} from "ton-compiler";
 // import mainFc from "./main.fc"
-import {compileFunc, compilerVersion} from '@ton-community/func-js';
-import {Cell} from 'ton';
+// import {compileFunc, compilerVersion} from '@ton-community/func-js';
+// import {Cell} from 'ton';
+// import {library} from './stdLibrary';
+// import {mainFun} from './mainFun';
+// import stdLib from '../../back-end/stdLibrary.fc'
+// // import mainFun from './mainFun.fc'
+// import {constant} from "./constant";
+// import {utils} from "./utils";
+// import  fs from 'fs'
 
-//console
 function App () {
-  async function main() {
-    // You can get compiler version
-    let version = await compilerVersion();
+  const [items, setItems] = useState([]);
 
-    let result = await compileFunc({
-      // Entry points of your project
-      entryPoints: ['main.fc'],
-      // Sources
-      sources: {
-        "stdlib.fc": "<stdlibCode>",
-        "main.fc": "<contractCode>",
-        // Rest of the files which are included in main.fc if some
-      }
-    });
-    if (result.status === 'error') {
-      console.error(result.message)
-      return;
-    }
 
-    // result.codeBoc contains base64 encoded BOC with code cell
-    let codeCell = Cell.fromBoc(Buffer.from(result.codeBoc, "base64"))[0];
-
-    // result.fiftCode contains assembly version of your code (for debug purposes)
-    console.log(result.fiftCode)
+  const fetchItems = async (text) => {
+    fetch(`/api/${text}`).then(async response => {
+      console.info(decodeURI(response.url));
+      let data = await response.json()
+      console.log(data);
+      setItems(data);
+    })
   }
- console.log(main());
   const [openedEditor, setOpenedEditor] = useState('html');
 
   const [html, setHtml] = useState('');
   const [css, setCss] = useState('');
   const [js, setJs] = useState('');
   const [srcDoc, setSrcDoc] = useState(``);
+
+  useEffect(()=>{
+    window.ref = React.createRef()
+// fetchItems()
+  },[])
 
 
   const onTabClick = (editorName) => {
@@ -65,16 +61,6 @@ function App () {
 
   return (
     <div className="App">
-      {/*<div className="glitch-embed-wrap" style={{height: "420px", width: "100%"}}>*/}
-      {/*  <iframe*/}
-      {/*      src={"https://glitch.com/embed/#!/embed/cyclic-sticky-brazil?path=tsconfig.json&previewSize=100"}*/}
-      {/*      title={"cyclic-sticky-brazil on Glitch"}*/}
-      {/*      allow={"geolocation; microphone; camera; midi; encrypted-media; xr-spatial-tracking; fullscreen"}*/}
-      {/*      allowFullScreen*/}
-      {/*      style={{height: "100%", width: "100%",border: 0}}>*/}
-      {/*  </iframe>*/}
-      {/*</div>*/}
-      <p>Welcome to the edior</p>
       <div className="tab-button-container">
         <Button title="HTML" onClick={() => {
           onTabClick('html')
@@ -85,6 +71,16 @@ function App () {
         <Button title="JavaScript" onClick={() => {
           onTabClick('js')
         }} />
+        <Button title={"compile"} onClick={()=>{
+          let result = ''
+         document.querySelectorAll('.CodeMirror-line ').forEach((e)=>{
+           result +=`${e.textContent}$`;
+         })
+          console.log(result);
+          fetchItems(result)
+
+        }
+        }></Button>
       </div>
       <div className="editor-container">
         {
@@ -103,12 +99,11 @@ function App () {
               setEditorState={setCss}
             />
           ) : (
-            <Editor
+            <Editor ref={window.ref}
               language="javascript"
               displayName="JS"
               value={js}
-              setEditorState={setJs}
-            />
+              setEditorState={setJs}/>
           )
         }
       </div>
@@ -119,8 +114,8 @@ function App () {
           title="output"
           sandbox="allow-scripts"
           frameBorder="1"
-          width="100%"
-          height="100%"
+          width="150%"
+          height="150%"
         />
       </div>
     </div>
