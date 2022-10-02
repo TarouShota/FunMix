@@ -23,7 +23,7 @@ function App () {
       console.info(decodeURI(response.url));
       let data = await response.json()
       console.log(data);
-      setItems(data);
+      setOutputMsg(data);
     })
   }
   const [openedEditor, setOpenedEditor] = useState('html');
@@ -32,10 +32,10 @@ function App () {
   const [css, setCss] = useState('');
   const [js, setJs] = useState('');
   const [srcDoc, setSrcDoc] = useState(``);
+  const [outputMsg,setOutputMsg] = useState('');
 
   useEffect(()=>{
-    window.ref = React.createRef()
-// fetchItems()
+    // document.getElementById('javascript-btn').firstChild.firstChild.textContent = 'FunC'
   },[])
 
 
@@ -61,63 +61,67 @@ function App () {
 
   return (
     <div className="App">
-      <div className="tab-button-container">
-        <Button title="HTML" onClick={() => {
-          onTabClick('html')
-        }} />
-        <Button title="CSS" onClick={() => {
-          onTabClick('css')
-        }} />
-        <Button title="JavaScript" onClick={() => {
-          onTabClick('js')
-        }} />
-        <Button title={"compile"} onClick={()=>{
-          let result = ''
-         document.querySelectorAll('.CodeMirror-line ').forEach((e)=>{
-           result +=`${e.textContent}$`;
-         })
-          console.log(result);
-          fetchItems(result)
+      {(outputMsg.status ==='ok') ? (<div style={{display: 'flex',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}>
+        <h3>Your reward:</h3>
+        <img style={{width:'45%',border:'10px solid green'}} src={"./nft.jpeg"}></img>
+        <div style={{marginTop:'2rem'}}>
+          <Button title={'Claim it'}></Button>
+        </div>
+      </div>) : (
+          <>
+            <div id='compile-button' style={{marginBottom:'3rem'}} className="tab-button-container">
+              <Button title={"Compile"} onClick={()=>{
+                let result = ''
+                document.querySelectorAll('.CodeMirror-line ').forEach((e)=>{
+                  result +=`${e.textContent}$`;
+                })
+                console.log(result);
+                fetchItems(result)
+              }
+              }></Button>
+            </div>
+            <div className="editor-container">
+              {
+                openedEditor === 'html' ? (
+                    <Editor
+                        language="xml"
+                        displayName="HTML"
+                        value={html}
+                        setEditorState={setHtml}
+                    />
+                ) : openedEditor === 'css' ? (
+                    <Editor
+                        language="css"
+                        displayName="CSS"
+                        value={css}
+                        setEditorState={setCss}
+                    />
+                ) : (
+                    <Editor
+                            language="javascript"
+                            displayName="JS"
+                            value={js}
+                            setEditorState={setJs}/>
+                )
+              }
+            </div>
 
+            <div className="fakeScreen">
+
+              <h3 style={{color:(outputMsg.status==="ok") ? 'green': 'red'}} >Status:{outputMsg.status}</h3>
+              <p className="line1">{(outputMsg.message)}<span className="cursor1">_</span></p>
+            </div>
+          </>
+      )
         }
-        }></Button>
-      </div>
-      <div className="editor-container">
-        {
-          openedEditor === 'html' ? (
-            <Editor
-              language="xml"
-              displayName="HTML"
-              value={html}
-              setEditorState={setHtml}
-            />
-          ) : openedEditor === 'css' ? (
-            <Editor
-              language="css"
-              displayName="CSS"
-              value={css}
-              setEditorState={setCss}
-            />
-          ) : (
-            <Editor ref={window.ref}
-              language="javascript"
-              displayName="JS"
-              value={js}
-              setEditorState={setJs}/>
-          )
-        }
-      </div>
-      <div>
-        <iframe
-          id="my_iframe"
-          srcDoc={srcDoc}
-          title="output"
-          sandbox="allow-scripts"
-          frameBorder="1"
-          width="150%"
-          height="150%"
-        />
-      </div>
+
+
+
+
     </div>
   );
 }
