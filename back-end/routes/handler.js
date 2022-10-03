@@ -8,19 +8,22 @@ import {Cell} from 'ton';
 // import fs from "fs";
 
  async function main(params) {
+     // console.log(params);
 
-     const arrayOfCode = params.split('$');
-     let i =0;
+     let arrayOfCode = params.split('$');
+     console.log(arrayOfCode);
+     // console.log(arrayOfCode);
+     // while( params[arrayOfCode.length-1]===`$` && params[arrayOfCode.length-1]===' '){
+     //     arrayOfCode.pop();
+     // }
     // console.log(arrayOfCode[0][arrayOfCode[0].length-1]);
-    for(i;i<arrayOfCode.length;i++){
-        arrayOfCode[i]+='\n'
+     let filteredArray = arrayOfCode.filter(word => word ===' ')
+     console.log(filteredArray[0]);
+    for(let i =0;i<filteredArray.length;i++){
+        filteredArray[i] =filteredArray[i]+'\n'
     }
-    arrayOfCode.filter((e)=>e!==` \n`)
-    console.log(arrayOfCode);
-    const stringifiedCode = arrayOfCode.join('');
-    console.log(stringifiedCode);
-    // console.log(arrayOfCode)
-    //  console.log(stringifie/dCode);
+    const stringifiedCode = filteredArray.join('');
+
     let result = await compileFunc({
         // Entry points of your project
         entryPoints: ['main.fc','stdlib.fc'],
@@ -39,7 +42,6 @@ import {Cell} from 'ton';
         }
     });
     if (result.status === 'error') {
-        // console.error(result.message)//
         return result
     }
 
