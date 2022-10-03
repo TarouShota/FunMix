@@ -1,5 +1,5 @@
 import express from 'express';
-
+import cors from 'cors'
 import routesHandler from './routes/handler.js';
 
 
@@ -8,10 +8,14 @@ import routesHandler from './routes/handler.js';
 const app = express();
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
+app.use(cors({
+    origin: "https://tonfunmix.netlify.app",
+    credentials: true
+}))
 app.use('/api', routesHandler);
 
 
-
+//asd
 /* Creating a csv file from the data that is being passed in. */
 // app.post('/api/create', (req, res) => {
 //     const data = req.body.data

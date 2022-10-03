@@ -13,13 +13,14 @@ import Editor from './components/Editor';
 // import {constant} from "./constant";
 // import {utils} from "./utils";
 // import  fs from 'fs'
+const API_URL = "http://46.101.133.215"
 
 function App () {
   const [items, setItems] = useState([]);
 
 
   const fetchItems = async (text) => {
-    fetch(`/api/${text}`).then(async response => {
+    fetch(`${API_URL}/api/${text}`).then(async response => {
       console.info(decodeURI(response.url));
       let data = await response.json()
       console.log(data);
