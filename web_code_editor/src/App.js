@@ -67,7 +67,7 @@ function App () {
         flexDirection: 'column',
       }}>
         <h3>Your reward:</h3>
-        <img style={{width:'45%',border:'10px solid green'}} src={"./nft.jpeg"}></img>
+        <img style={{width:'45%',border:'10px solid #5bd65b'}} src={"./nft.jpeg"}></img>
         <div style={{marginTop:'2rem'}}>
           <Button title={'Claim it'}></Button>
         </div>
