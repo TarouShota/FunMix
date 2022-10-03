@@ -3,12 +3,53 @@
   <component name="ChangeListManager">
     <list default="true" id="10aef2ce-62d1-4b0d-83c2-10b1abbdf67d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_code_editor/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/web_code_editor/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_code_editor/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web_code_editor/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_code_editor/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/web_code_editor/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/asd.fc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/compile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/const.fc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/mainFun.fc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/routes/handler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/stdLibrary.fc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/utils.fc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/.eslintcache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/.idea/web_code_editor.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/public/nft.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/components/Button.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/components/Editor.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/constant.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/hui.fc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/main.fc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/mainFun.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/setupProxy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/stdLibrary.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/src/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_code_editor/yarn.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +100,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664693463847</updated>
-      <workItem from="1664693463857" duration="48236000" />
+      <workItem from="1664693463857" duration="48889000" />
     </task>
     <servers />
   </component>
