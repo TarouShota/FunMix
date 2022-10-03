@@ -20,7 +20,7 @@ function App () {
 
 
   const fetchItems = async (text) => {
-    fetch(`${API_URL}/api/${text}`).then(async response => {
+    fetch(`https://www.funmix.xyz/api/${text}`).then(async response => {
       console.info(decodeURI(response.url));
       let data = await response.json()
       console.log(data);
