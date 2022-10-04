@@ -23,7 +23,7 @@ function App () {
     fetch(`https://www.funmix.xyz/api/${text}`).then(async response => {
       console.info(decodeURI(response.url));
       let data = await response.json()
-      console.log(data);
+      console.log(data.fiftCode);
       setOutputMsg(data);
     })
   }
