@@ -17,7 +17,7 @@ import {Cell} from 'ton';
      //     arrayOfCode.pop();
      // }
     // console.log(arrayOfCode[0][arrayOfCode[0].length-1]);
-     let filteredArray = arrayOfCode.filter(word => word ===' ')
+     let filteredArray = arrayOfCode.filter(word => word !==' ')
      console.log(filteredArray[0]);
     for(let i =0;i<filteredArray.length;i++){
         filteredArray[i] =filteredArray[i]+'\n'
